@@ -89,9 +89,3 @@ sudo service postgresql restart
 
 ![Result 3](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/aa55f2eb-67ca-456f-8489-0f69549520c8)
 
-Please note that the provided links to images may need to be updated with the correct URLs to ensure they work correctly in the repository. Also, ensure the indentation and formatting are consistent to maintain readability.
-
-
- 
-
-
