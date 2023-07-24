@@ -1,80 +1,94 @@
 # Apache_Airflow_labs
-Building data processing pipelines in Apache Airflow/ELT patern
 
-1. Firstly, you should install Apache Airflow on your PC. If ypu use Windows system, you can use Ubuntu subsystem - https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6. Don't forget to go to Windows Developer Settings and install developer mode (Developer Mode). Also in Windows tools (Windows Features) you need to enable the Windows Subsystem for Linux component.
+## Building data processing pipelines in Apache Airflow/ELT pattern
 
-![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/337f98ea-2967-469c-b3d5-bac2362765d1)
+_This repository showcases the results of the labs completed during my first semester at Igor Sikorsky Kyiv Polytechnic Institute, where I pursued a Master's degree in Informatics and Software Engineering🎓_
 
-  Then, you should install all packages by following commands below:
+_The labs primarily focus on Apache Airflow and demonstrate data processing pipelines built using the ELT pattern. Through this repository, I aim to share my practical experiences and learnings from these labs with others interested in data engineering and workflow automation using Apache Airflow._
 
-   sudo apt-get update
-   
-   sudo apt-get install libmysqlclient-dev
-   
-   sudo apt-get install libkrb5-dev
-   
-   sudo apt-get install libsasl2-dev
+### Installation
 
-   sudo apt-get install postgresql postgresql-contrib
+1. Before proceeding, ensure you have Apache Airflow installed on your PC. If you are using a Windows system, you can use the Ubuntu subsystem available at https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6. Make sure to enable developer mode in Windows Developer Settings and activate the Windows Subsystem for Linux component in Windows Features.
 
-   sudo service postgresql start
+![Ubuntu Subsystem](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/337f98ea-2967-469c-b3d5-bac2362765d1)
 
-   sudo nano /etc/postgresql/*/main/pg_hba.conf
+2. Install the required packages by running the following commands:
 
-   ![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/5cfedbe4-6189-4890-afa6-825180b4838c)
+```bash
+sudo apt-get update
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install libkrb5-dev
+sudo apt-get install libsasl2-dev
+sudo apt-get install postgresql postgresql-contrib
+sudo service postgresql start
+sudo nano /etc/postgresql/*/main/pg_hba.conf
+```
 
-   sudo service postgresql restart
+![PostgreSQL Configuration](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/5cfedbe4-6189-4890-afa6-825180b4838c)
 
-   sudo apt install python3-pip
+```bash
+sudo service postgresql restart
+sudo apt install python3-pip
+pip install apache-airflow
+```
 
-   pip install apache-airflow
+![Install Apache Airflow](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/c119b70e-4842-4c4f-8ffb-8472d07d5409)
 
-   ![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/c119b70e-4842-4c4f-8ffb-8472d07d5409)
+```bash
+sudo pip install apache-airflow
+airflow db init
+```
 
-   sudo pip install apache-airflow
+![Initialize Airflow Database](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/a5162d61-3ba4-4f07-84f0-28980a32741b)
 
-   airflow db init
+```bash
+sudo apt-get install build-dep python-psycopg2
+pip install psycopg2-binary
+```
 
-   ![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/a5162d61-3ba4-4f07-84f0-28980a32741b)
-   
-   sudo apt-get install build-dep python-psycopg2
-   
-   pip install psycopg2-binary 
-   
-   ![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/f01e5968-c352-4dc0-aa72-9641f6d4b31a)
+![Install psycopg2-binary](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/f01e5968-c352-4dc0-aa72-9641f6d4b31a)
 
-2. For the next step, ypu should check or put your DAGs in folder by this path C:/Users/vicwa/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/vic/airflow/dags:
-   ![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/46ca20aa-926a-4116-8e46-32139f2a55b9)
-3. Create database:
+### Setting up DAGs
 
-   psql -h 127.0.0.1 -d airflow -U vic
+3. Place your DAGs in the following folder path: C:/Users/vicwa/AppData/Local/Packages/CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc/LocalState/rootfs/home/vic/airflow/dags
 
-   ![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/75ceeca1-0eac-427d-a31c-ab9a2faa6851)
+![DAGs Path](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/46ca20aa-926a-4116-8e46-32139f2a55b9)
 
-4. Write following commands in Ubuntu console:
+### Creating the database
 
-   sudo service postgresql restart
+4. Create a database using the following command:
 
-   airflow db init
+```bash
+psql -h 127.0.0.1 -d airflow -U vic
+```
 
-   airflow webserver -p 8080
+![Create Database](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/75ceeca1-0eac-427d-a31c-ab9a2faa6851)
 
-   airflow scheduler
+### Running Airflow
 
-   sudo service postgresql restart
+5. Run the following commands in the Ubuntu console:
 
-   ![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/dd971cac-6da8-446c-8b99-9959ce434290)
+```bash
+sudo service postgresql restart
+airflow db init
+airflow webserver -p 8080
+airflow scheduler
+sudo service postgresql restart
+```
 
-5. Results for Lab1:
+![Start Airflow Services](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/dd971cac-6da8-446c-8b99-9959ce434290)
 
-   ![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/6cf7000d-f5e1-4c8c-a1ab-3eeea626b964)
+### Lab1 Results
 
-   ![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/40104034-f325-47ad-9324-818564eef9c7)
+6. Results for Lab1:
 
-   ![image](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/aa55f2eb-67ca-456f-8489-0f69549520c8)
+![Result 1](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/6cf7000d-f5e1-4c8c-a1ab-3eeea626b964)
 
+![Result 2](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/40104034-f325-47ad-9324-818564eef9c7)
 
-   
+![Result 3](https://github.com/vicnesterenko/Apache_Airflow_labs/assets/136901590/aa55f2eb-67ca-456f-8489-0f69549520c8)
+
+Please note that the provided links to images may need to be updated with the correct URLs to ensure they work correctly in the repository. Also, ensure the indentation and formatting are consistent to maintain readability.
 
 
  
