@@ -2,7 +2,8 @@
 
 ## Building data processing pipelines in Apache Airflow/ELT pattern
 
-_This repository showcases the results of the labs completed during my first semester at Igor Sikorsky Kyiv Polytechnic Institute, where I pursued a Master's degree in Informatics and Software Engineering🎓_
+_This repository showcases the results of the labs completed during my first semester at Igor Sikorsky Kyiv Polytechnic Institute, where I pursued a Master's degree in Informatics and Software Engineering🎓_ - ![Link of faculty](https://fiot.kpi.ua/)
+
 
 _The labs primarily focus on Apache Airflow and demonstrate data processing pipelines built using the ELT pattern. Through this repository, I aim to share my practical experiences and learnings from these labs with others interested in data engineering and workflow automation using Apache Airflow._
 
